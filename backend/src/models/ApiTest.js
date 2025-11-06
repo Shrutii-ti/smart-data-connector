@@ -47,11 +47,10 @@ const apiTestSchema = new mongoose.Schema({
   samplePath: {
     type: String
   },
-  fields: [{
-    name: String,
-    type: String,
-    sample: mongoose.Schema.Types.Mixed
-  }],
+  fields: {
+    type: mongoose.Schema.Types.Mixed,
+    default: []
+  },
   pagination: {
     type: mongoose.Schema.Types.Mixed
   },
