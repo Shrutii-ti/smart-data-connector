@@ -1,0 +1,65 @@
+{
+  "version": "1.0.0",
+  "datasource": {
+    "name": "API Datasource",
+    "type": "restapi",
+    "url": "http://localhost:3001/orders",
+    "method": "GET",
+    "headers": {},
+    "queryParams": {}
+  },
+  "components": {
+    "table": {
+      "component": "Table",
+      "dataBinding": "{{datasource.data.orders}}",
+      "columns": [
+        {
+          "name": "id",
+          "key": "id",
+          "type": "number",
+          "selector": "$.orders[].id"
+        },
+        {
+          "name": "customer",
+          "key": "customer",
+          "type": "text",
+          "selector": "$.orders[].customer"
+        },
+        {
+          "name": "amount",
+          "key": "amount",
+          "type": "text",
+          "selector": "$.orders[].amount"
+        },
+        {
+          "name": "status",
+          "key": "status",
+          "type": "text",
+          "selector": "$.orders[].status"
+        },
+        {
+          "name": "date",
+          "key": "date",
+          "type": "text",
+          "selector": "$.orders[].date"
+        }
+      ]
+    },
+    "pagination": {
+      "component": "Pagination",
+      "type": "page",
+      "pageParam": "page",
+      "limitParam": "limit",
+      "metaPaths": {
+        "currentPage": "meta.page",
+        "perPage": "meta.per_page",
+        "total": "meta.total"
+      }
+    }
+  },
+  "metadata": {
+    "samplePath": "$.orders",
+    "fieldCount": 5,
+    "hasPagination": true
+  }
+}
